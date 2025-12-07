@@ -1,0 +1,119 @@
+/* 
+ * Claude Code Terminal Theme
+ * Dark purple/burgundy background with peach text
+ * Font: Fira Code
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  font-family: 'Fira Code', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  background: #2d0a16;
+  color: #DE7356;
+  overflow-x: hidden;
+}
+
+/* Force all text to wrap */
+pre,
+code,
+p,
+div,
+span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2d0a16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5c2a38;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7d3d4d;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(222, 115, 86, 0.3);
+  color: #DE7356;
+}
+
+/* Link styles */
+a {
+  color: #7dd3fc;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: #a5e4ff;
+  text-decoration: underline;
+}
+
+/* Input focus styles */
+input:focus {
+  outline: none;
+}
+
+/* Pixelated image rendering for avatar */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Cursor blink */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}

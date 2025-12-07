@@ -68,10 +68,13 @@ export const Terminal: React.FC = () => {
                             <span className="text-claude-text"> portfolio!</span>
                         </div>
 
-                        {/* ASCII Art Name with Avatar on RIGHT side */}
-                        <div className="flex items-stretch gap-4 mb-6">
-                            {/* Chunky ASCII Art Name - LEFT */}
-                            <pre className="text-claude-text text-xs sm:text-sm md:text-base leading-tight break-words whitespace-pre-wrap">
+                        {/* ASCII Art Name with Avatar */}
+                        <div className="flex flex-col md:flex-row md:items-stretch gap-4 mb-6">
+                            {/* Chunky ASCII Art Name */}
+                            <pre
+                                className="text-claude-text leading-none whitespace-pre overflow-x-auto"
+                                style={{ fontSize: 'clamp(4px, 1.5vw, 14px)' }}
+                            >
                                 {`███████╗██████╗ ██╗
 ██╔════╝██╔══██╗██║
 ███████╗██████╔╝██║
@@ -85,13 +88,13 @@ export const Terminal: React.FC = () => {
 ██║  ██╗╚██████╔╝███████╗██║  ██║╚██████╔╝██║  ██║██║ ╚████║██║
 ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝`}
                             </pre>
-                            {/* Avatar - RIGHT side, matching height */}
-                            <div className="w-auto shrink-0 rounded overflow-hidden border border-claude-border">
+                            {/* Avatar */}
+                            <div className="w-20 md:w-auto shrink-0 rounded overflow-hidden border border-claude-border">
                                 <img
                                     src={`${import.meta.env.BASE_URL}avatar-pixel.png`}
                                     alt="Pixel avatar of Sri Kolagani"
-                                    className="h-full w-auto object-cover pixelated"
-                                    style={{ height: '198px', width: 'auto' }}
+                                    className="w-full md:w-auto md:h-full object-cover pixelated"
+                                    style={{ maxHeight: '198px' }}
                                     onError={(e) => {
                                         (e.target as HTMLImageElement).style.display = 'none';
                                     }}

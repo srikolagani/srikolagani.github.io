@@ -1,119 +1,33 @@
-/* 
- * Claude Code Terminal Theme
- * Dark purple/burgundy background with peach text
- * Font: Fira Code
- */
-
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
 :root {
-  font-family: 'Fira Code', monospace;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
 }
 
-* {
-  box-sizing: border-box;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+html {
+  scroll-behavior: smooth;
 }
 
-html,
-body,
-#root {
+body {
   margin: 0;
-  padding: 0;
   min-height: 100vh;
-  width: 100%;
-  max-width: 100vw;
-  background: #2d0a16;
-  color: #DE7356;
-  overflow-x: hidden;
+  background: #fafaf9;
+  color: #292524;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Force all text to wrap */
-pre,
-code,
-p,
-div,
-span {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #2d0a16;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #5c2a38;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #7d3d4d;
-}
-
-/* Selection color */
 ::selection {
-  background: rgba(222, 115, 86, 0.3);
-  color: #DE7356;
+  background: rgba(120, 113, 108, 0.22);
 }
 
-/* Link styles */
-a {
-  color: #7dd3fc;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-a:hover {
-  color: #a5e4ff;
-  text-decoration: underline;
-}
-
-/* Input focus styles */
-input:focus {
-  outline: none;
-}
-
-/* Pixelated image rendering for avatar */
-.pixelated {
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-/* Cursor blink */
-@keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-.cursor-blink {
-  animation: blink 1s step-end infinite;
+.prose pre {
+  background: #1c1917;
+  color: #f5f5f4;
+  border-radius: 0.5rem;
 }

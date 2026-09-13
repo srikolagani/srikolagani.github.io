@@ -9,12 +9,159 @@ export type Post = {
 
 export const SITE = {
   title: 'Sri Kolagani',
-  tagline: 'Notes on agentic workflows, CRM systems, and calm engineering.',
+  tagline: 'Notes on agentic GTM workflows, CRM systems, evals, and calm engineering.',
   kitUrl: 'https://github.com/srikolagani/crm-agent-kit',
   githubUrl: 'https://github.com/srikolagani',
 };
 
 export const posts: Post[] = [
+
+  {
+    slug: 'sdrcockpit-research-sequence-send-gate',
+    title: 'sdrcockpit: research → sequence with a hard send gate',
+    date: '2026-09-13',
+    excerpt:
+      'An offline-first SDR cockpit: SQLite CRM research, multi-step sequences, MockLLM default, and golden evals that fail on fabrication or ungated sends.',
+    tags: ['sdrcockpit', 'sdr', 'evals', 'agents'],
+    body: `## Why sdrcockpit
+
+Outbound agents are easy to demo and hard to trust. [sdrcockpit](https://github.com/srikolagani/sdrcockpit) keeps the loop small: research an account from fixtures → draft a sequence → **refuse to send** until a human gate opens.
+
+## Architecture
+
+\`\`\`mermaid
+flowchart LR
+  Demo[demo / evals] --> Agent[SDRCockpit]
+  Agent --> LLM[MockLLM default]
+  Agent --> CRM[(SQLite CRM)]
+  Agent --> Gate[send gate]
+  MCP[MCP stub] --> Agent
+\`\`\`
+
+MockLLM is the default — zero API keys. Optional Grok sits behind \`XAI_API_KEY\` + \`FORCE_GROK=1\` (stub client in v0.1).
+
+## Uniqueness vs OpenSales / ai-sdr-crew / GOVR
+
+Those projects optimize for multi-agent crew theatrics. sdrcockpit optimizes for a **send gate + no-fabrication CI**. One readable Python loop, not a swarm.
+
+## Eval results (v0.1)
+
+| Case | Result |
+|------|--------|
+| research-no-fabrication | pass |
+| send-gate-blocks | pass |
+| sequence-has-steps | pass |
+| **Pass rate** | **100% (3/3)** |
+
+\`\`\`bash
+pip install -e ".[dev]"
+python -m sdrcockpit.demo
+pytest -q
+python -m sdrcockpit.evals.run_evals --strict
+\`\`\`
+`,
+  },
+  {
+    slug: 'closeplan-playbook-fidelity',
+    title: 'closeplan: mutual action plans that honor the playbook',
+    date: '2026-09-13',
+    excerpt:
+      'A MAP / close-plan agent where missing playbook milestones, owners, or dates fail the golden eval gate — offline, MockLLM default.',
+    tags: ['closeplan', 'map', 'playbooks', 'evals'],
+    body: `## Why closeplan
+
+Close plans fail when milestones lack owners or drift from stage playbooks. [closeplan](https://github.com/srikolagani/closeplan) treats **playbook fidelity** as the product.
+
+## Architecture
+
+Opportunity stage → playbook milestone IDs → dated owners → fidelity check. SQLite CRM fixtures; optional external CRM adapter stub only.
+
+## Uniqueness vs OpenSales / ai-sdr-crew / GOVR
+
+A single MAP agent with explicit fidelity scores in CI — not a multi-role crew narrating a deal.
+
+## Eval results (v0.1)
+
+| Case | Result |
+|------|--------|
+| negotiation-playbook-complete | pass |
+| milestones-have-owners-dates | pass |
+| **Pass rate** | **100% (2/2)** |
+`,
+  },
+  {
+    slug: 'accountplan-completeness-grounding',
+    title: 'accountplan: completeness and CRM-fact grounding',
+    date: '2026-09-13',
+    excerpt:
+      'Account plans with required sections and objectives that must cite SQLite CRM facts — MockLLM CI with no keys.',
+    tags: ['accountplan', 'account-planning', 'evals'],
+    body: `## Why accountplan
+
+Account plans are political documents. [accountplan](https://github.com/srikolagani/accountplan) requires objectives, stakeholders, whitespace, risks, and next-90-days — and grounds each objective in a CRM fact.
+
+## Uniqueness vs OpenSales / ai-sdr-crew / GOVR
+
+Section completeness + grounding evals are the contract. Generic CRM nouns only; no platform product branding.
+
+## Eval results (v0.1)
+
+| Case | Result |
+|------|--------|
+| complete-sections | pass |
+| objectives-grounded | pass |
+| **Pass rate** | **100% (2/2)** |
+`,
+  },
+  {
+    slug: 'account360-cited-claims-only',
+    title: 'account360: every claim cited or the build fails',
+    date: '2026-09-13',
+    excerpt:
+      'Account 360 rollups where uncited or invented claims trip a hallucination CI gate — citation-first, MockLLM default.',
+    tags: ['account360', 'citations', 'hallucination', 'evals'],
+    body: `## Why account360
+
+Rollups that invent ARR or champions are worse than silence. [account360](https://github.com/srikolagani/account360) emits claims with sources; the golden eval fails on hallucination.
+
+## Uniqueness vs OpenSales / ai-sdr-crew / GOVR
+
+Citation-first contract. Sharper than open-ended multi-agent summaries.
+
+## Eval results (v0.1)
+
+| Case | Result |
+|------|--------|
+| all-claims-cited | pass |
+| no-hallucination | pass |
+| **Pass rate** | **100% (2/2)** |
+`,
+  },
+  {
+    slug: 'salescoach-rubric-policy',
+    title: 'salescoach: rubric scores and hard policy checks',
+    date: '2026-09-13',
+    excerpt:
+      'Coach from deal artifacts with weighted rubric dimensions and policies that ban guaranteed closes — offline evals at 100%.',
+    tags: ['salescoach', 'coaching', 'rubric', 'evals'],
+    body: `## Why salescoach
+
+Chatty coaches drift. [salescoach](https://github.com/srikolagani/salescoach) scores discovery depth, champion strength, mutual-plan quality, and risk honesty — then enforces policy (no guaranteed closes, cite artifacts, actionable next step).
+
+## Uniqueness vs OpenSales / ai-sdr-crew / GOVR
+
+Rubric/policy-first coaching on fixture deal artifacts. CI fails on policy misses.
+
+## Eval results (v0.1)
+
+| Case | Result |
+|------|--------|
+| policy-clean | pass (score 85.0) |
+| rubric-bounds | pass |
+| **Pass rate** | **100% (2/2)** |
+`,
+  },
+
   {
     slug: 'introducing-crm-agent-kit',
     title: 'Introducing crm-agent-kit: a small runtime for agentic CRM workflows',

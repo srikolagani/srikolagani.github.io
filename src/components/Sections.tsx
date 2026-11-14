@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { PORTFOLIO, type ProjectItem } from '../data/portfolio';
-import { type Post, posts } from '../data/posts';
 import { F1GameBanner } from './F1Game';
 import { Container, SectionHeader, StripeDivider } from './Frame';
 import {
@@ -23,7 +22,7 @@ import {
   SunIcon,
 } from './Icons';
 
-export type ActiveTab = 'home' | 'projects' | 'experience' | 'writing' | 'contact';
+export type ActiveTab = 'home' | 'projects' | 'experience' | 'contact';
 
 export function Header({
   activeTab,
@@ -52,7 +51,6 @@ export function Header({
     { label: 'Home', tab: 'home' },
     { label: 'Projects', tab: 'projects' },
     { label: 'Experience', tab: 'experience' },
-    { label: 'Writing', tab: 'writing' },
     { label: 'Contact', tab: 'contact' },
   ];
 
@@ -67,16 +65,28 @@ export function Header({
             : 'mt-0 w-full rounded-none border-b border-[var(--line)] bg-[var(--bg)]/85 shadow-none backdrop-blur-md'
         }`}
       >
-        <Container className="flex items-center justify-between px-6 py-4 sm:px-8">
+        <Container className="flex items-center justify-between px-6 py-3.5 sm:px-8">
           <button
             type="button"
             onClick={() => {
               onSelectTab('home');
               setMobileOpen(false);
             }}
-            className="cursor-pointer font-serif text-xl tracking-wide text-[var(--fg)] transition-opacity hover:opacity-80"
+            className="group flex cursor-pointer items-center gap-2.5 text-left transition-opacity hover:opacity-85"
           >
-            {PORTFOLIO.firstName}
+            <span className="relative size-6 shrink-0 overflow-hidden rounded-md border border-[var(--line)] bg-[var(--chip)]">
+              <img
+                src={PORTFOLIO.avatar}
+                alt={PORTFOLIO.name}
+                className="h-full w-full object-cover"
+              />
+            </span>
+            <span className="font-serif text-lg tracking-wide text-[var(--fg)] sm:text-xl">
+              {PORTFOLIO.name}
+            </span>
+            <span className="hidden rounded border border-[var(--line)] bg-[var(--chip)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--soft)] sm:inline-block">
+              ~/sri
+            </span>
           </button>
 
           <nav className="hidden items-center gap-5 text-[13px] text-[var(--muted)] sm:flex">
@@ -196,7 +206,6 @@ const SIDE_SECTIONS = [
   { id: 'experience', label: 'Experience' },
   { id: 'speaking', label: 'Speaking' },
   { id: 'skills', label: 'Skills' },
-  { id: 'writing', label: 'Writing' },
   { id: 'github', label: 'GitHub' },
 ];
 
@@ -545,7 +554,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
         <SectionHeader
           title="Projects"
           aside={
-            <div className="flex gap-1 rounded-lg border border-[var(--line)] bg-[var(--chip)] p-0.5">
+            <div className="flex flex-wrap gap-1 rounded-lg border border-[var(--line)] bg-[var(--chip)] p-0.5">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -568,7 +577,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
           {searchable && (
             <div className="mb-6 flex flex-col gap-4 border-b border-[var(--line)] pb-5 sm:flex-row sm:items-center sm:justify-between">
               <div className="relative w-full sm:max-w-xs">
-                <SearchIcon className=" -translate-y-1/2 absolute left-3 top-1/2 size-4 text-[var(--soft)]" />
+                <SearchIcon className="-translate-y-1/2 absolute left-3 top-1/2 size-4 text-[var(--soft)]" />
                 <input
                   type="text"
                   placeholder="Search Glassforce, TinyCRM, stack..."
@@ -578,7 +587,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
                 />
               </div>
               <span className="font-mono text-[11px] text-[var(--soft)]">
-                Showing {filtered.length} featured builds
+                Showing {filtered.length} of {PORTFOLIO.projects.length} featured projects
               </span>
             </div>
           )}
@@ -627,7 +636,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
                     onClick={(e) => e.stopPropagation()}
                   >
                     {project.links.live && (
-                      <a
+            <a
                         href={project.links.live}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -641,7 +650,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
                       <a
                         href={project.links.source}
                         target="_blank"
-              rel="noopener noreferrer"
+                        rel="noopener noreferrer"
                         aria-label={`${project.title} GitHub repository`}
                         className="transition-all duration-200 hover:-translate-y-0.5 hover:text-[var(--fg)]"
                       >
@@ -653,6 +662,24 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
               </div>
             ))}
           </div>
+
+          {filtered.length === 0 && (
+            <div className="rounded-xl border border-dashed border-[var(--line)] py-12 text-center">
+              <p className="font-mono text-xs text-[var(--soft)]">
+                No projects match &ldquo;{query}&rdquo;.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setFilter('All');
+                  setQuery('');
+                }}
+                className="mt-3 cursor-pointer rounded-md border border-[var(--line)] bg-[var(--chip)] px-3 py-1.5 font-mono text-xs text-[var(--fg)]"
+              >
+                Reset filters
+              </button>
+            </div>
+          )}
         </Container>
       </div>
 
@@ -745,7 +772,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
                 <div className="grid sm:grid-cols-[1fr_240px]">
                   <div className="border-b border-[var(--line)] p-6 sm:border-b-0 sm:border-r sm:p-8">
                     <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--muted)]">
-                      Architecture & Story
+                      Overview & Engineering
                     </span>
                     <div className="mt-4 space-y-4">
                       {selected.story.split('\n\n').map((para, i) => (
@@ -786,13 +813,13 @@ export function ExperienceSection({ detailed = false }: { detailed?: boolean }) 
       <SectionHeader
         title="Experience"
         aside={
-          <span className="font-mono text-[11px] text-[var(--soft)]">13+ Years Leadership</span>
+          <span className="font-mono text-[11px] text-[var(--soft)]">10+ Years Leadership</span>
         }
       />
       <Container>
         {PORTFOLIO.experience.map((exp, idx) => (
           <div
-            key={exp.company}
+            key={`${exp.company}-${exp.role}`}
             className={`px-6 py-6 transition-colors duration-200 hover:bg-[var(--hover)] sm:px-8 ${
               idx > 0 ? 'border-t border-[var(--line)]' : ''
             }`}
@@ -842,7 +869,10 @@ export function ExperienceSection({ detailed = false }: { detailed?: boolean }) 
               <div className="mt-3 space-y-3">
                 {PORTFOLIO.educationAndCerts.education.map((ed) => (
                   <div key={ed.school}>
-                    <p className="text-[14px] font-semibold text-[var(--fg)]">{ed.school}</p>
+                    <div className="flex items-baseline justify-between gap-2">
+                      <p className="text-[14px] font-semibold text-[var(--fg)]">{ed.school}</p>
+                      <span className="font-mono text-[11px] text-[var(--soft)]">{ed.period}</span>
+                    </div>
                     <p className="text-[12.5px] text-[var(--muted)]">{ed.degree}</p>
                   </div>
                 ))}
@@ -873,7 +903,7 @@ export function SpeakingSection() {
   return (
     <div id="speaking">
       <SectionHeader
-        title="Speaking & Publications"
+        title="Speaking & Open Source"
         aside={
           <a
             href={PORTFOLIO.socials.blog}
@@ -974,81 +1004,6 @@ export function TechStackSection() {
             </span>
           ))}
         </div>
-      </Container>
-    </div>
-  );
-}
-
-export function WritingSection({
-  limit,
-  onSelectPost,
-  onViewAll,
-}: {
-  limit?: number;
-  onSelectPost: (post: Post) => void;
-  onViewAll?: () => void;
-}) {
-  const list = limit ? posts.slice(0, limit) : posts;
-  const hasMore = limit ? posts.length > limit : false;
-
-  return (
-    <div id="writing">
-      <SectionHeader
-        title="Writing & Architecture Notes"
-        aside={
-          <a
-            href={PORTFOLIO.socials.blog}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group/header flex items-center gap-1.5 font-mono text-[11px] text-[var(--soft)] transition-colors hover:text-[var(--fg)]"
-          >
-            <span className="hidden sm:inline">elastic.co/search-labs</span>
-            <ArrowUpRightIcon className="size-3 text-[var(--soft)] transition-transform group-hover/header:-translate-y-0.5 group-hover/header:translate-x-0.5" />
-          </a>
-        }
-      />
-      <Container>
-        <div className="divide-y divide-[var(--line)]">
-          {list.map((post) => (
-            <button
-              key={post.slug}
-              type="button"
-              onClick={() => onSelectPost(post)}
-              className="group flex w-full cursor-pointer flex-col justify-between gap-3 px-6 py-5 text-left transition-colors duration-200 hover:bg-[var(--hover)] sm:flex-row sm:items-baseline sm:px-8"
-            >
-              <div className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-6">
-                <span className="w-24 shrink-0 font-mono text-[11px] text-[var(--soft)]">
-                  {post.date}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-serif text-[19px] font-medium leading-snug text-[var(--fg)] transition-colors group-hover:text-[var(--muted)]">
-                    {post.title}
-                  </h3>
-                  <p className="mt-1 line-clamp-2 text-[13px] leading-relaxed text-[var(--muted)]">
-                    {post.excerpt}
-                  </p>
-                </div>
-              </div>
-              <div className="flex shrink-0 items-center gap-2 self-end font-mono text-[11px] text-[var(--soft)] sm:self-auto">
-                <span>Read note</span>
-                <ArrowUpRightIcon className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--fg)]" />
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {hasMore && onViewAll && (
-          <div className="bg-stripes flex justify-center border-t border-[var(--line)] py-6">
-            <button
-              type="button"
-              onClick={onViewAll}
-              className="inline-flex cursor-pointer items-center gap-2 rounded-lg bg-[var(--fg)] px-5 py-2.5 text-[13px] font-semibold text-[var(--bg)] transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              <span>Read all {posts.length} engineering notes</span>
-              <ArrowRightIcon className="size-3.5" />
-            </button>
-          </div>
-        )}
       </Container>
     </div>
   );
@@ -1197,7 +1152,7 @@ export function ContactPageSection() {
               <div>
                 <h3 className="text-[15px] font-semibold text-[var(--fg)]">Direct Inbox</h3>
                 <p className="text-xs text-[var(--muted)]">
-                  Enterprise AI, RevOps Architecture, Speaking & Open Source
+                  Enterprise AI, RevOps Engineering, Speaking & Open Source
                 </p>
               </div>
             </div>
@@ -1231,6 +1186,9 @@ export function ContactPageSection() {
             <div className="mt-6 space-y-2 font-mono text-[12px] text-[var(--muted)]">
               <p>
                 <span className="text-[var(--soft)]">Location:</span> {PORTFOLIO.location}
+              </p>
+              <p>
+                <span className="text-[var(--soft)]">Phone:</span> {PORTFOLIO.phone}
               </p>
               <p>
                 <span className="text-[var(--soft)]">GitHub:</span>{' '}
@@ -1268,8 +1226,8 @@ export function ContactPageSection() {
                 or native tools?
               </h3>
               <p className="mt-4 text-[13.5px] leading-6 text-[var(--muted)]">
-                Whether you&apos;re scaling enterprise applications, designing multi-agent revenue
-                workflows, or exploring Glassforce and TinyCRM, I&apos;d love to chat.
+                Whether you&apos;re scaling enterprise applications, leading AI GTM engineering, or
+                exploring Glassforce and TinyCRM, I&apos;d love to chat.
               </p>
             </div>
 
@@ -1304,10 +1262,6 @@ const QUOTES = [
     author: 'John Johnson',
   },
   {
-    text: 'Agent demos impress. Agent evaluations decide whether anything ships.',
-    author: 'Sri Kolagani',
-  },
-  {
     text: 'The best way to predict the future is to invent it.',
     author: 'Alan Kay',
   },
@@ -1334,7 +1288,7 @@ export function Footer() {
           }).format(new Date())
         );
       } catch {
-   setTimeStr(new Date().toLocaleTimeString());
+        setTimeStr(new Date().toLocaleTimeString());
       }
     };
     updateClock();
@@ -1374,7 +1328,7 @@ export function Footer() {
           <span className="font-serif text-4xl leading-none text-[var(--soft)]">“</span>
           <p
             key={quoteIdx}
-            className="animate-fade-up mx-auto -mt-2 max-w-md font-serif text-[20px] italic leading-snug text-[var(--fg)] sm:text-[22px]"
+className="animate-fade-up mx-auto -mt-2 max-w-md font-serif text-[20px] italic leading-snug text-[var(--fg)] sm:text-[22px]"
           >
             {QUOTES[quoteIdx].text}
           </p>
@@ -1458,15 +1412,6 @@ export function CommandPalette({
       subtitle: 'Elastic, Western Union, Intuitive Surgical, Hitachi',
       action: () => {
         onSelectTab('experience');
-        onClose();
-      },
-    },
-    {
-      id: 'writing',
-      title: 'Go to Writing & Architecture Notes',
-      subtitle: 'Agentic CRM patterns, eval gates, and Search Labs articles',
-      action: () => {
-        onSelectTab('writing');
         onClose();
       },
     },
@@ -1556,7 +1501,7 @@ export function CommandPalette({
           <SearchIcon className="size-4 text-[var(--soft)]" />
           <input
             ref={inputRef}
-      type="text"
+            type="text"
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);

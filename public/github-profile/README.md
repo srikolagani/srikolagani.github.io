@@ -6,7 +6,7 @@
   </picture>
 </p>
 
-I build autonomous AI GTM systems, enterprise revenue architectures, and fast local-first native tools for the workflows that usually eat your afternoon: slow web consoles, fragmented CRM tabs, and agents that need human-in-the-loop verification gates. Mostly Rust, SwiftUI, TypeScript, and Python, with occasional detours into [Formula 1 pixel racing](https://srikolagani.github.io/) and [Search Labs articles](https://www.elastic.co/search-labs/author/sri-kolagani).
+I build autonomous AI GTM systems, enterprise revenue platforms, and fast local-first native tools for the workflows that usually eat your afternoon: slow web consoles, fragmented CRM tabs, and agents that need human-in-the-loop verification gates. Mostly Rust, SwiftUI, TypeScript, and Python, with occasional detours into [Formula 1 pixel racing](https://srikolagani.github.io/) and [Search Labs articles](https://www.elastic.co/search-labs/author/sri-kolagani).
 
 ![Rust](https://img.shields.io/badge/Rust-17324d?style=flat-square&logo=rust&logoColor=white)
 ![Swift](https://img.shields.io/badge/Swift_6-f06a3c?style=flat-square&logo=swift&logoColor=white)
@@ -26,7 +26,7 @@ I build autonomous AI GTM systems, enterprise revenue architectures, and fast lo
     </td>
     <td width="80%" valign="top">
       <h3><a href="https://github.com/srikolagani/glassforce-public">Glassforce</a> <img src="https://srikolagani.github.io/github-profile/badges/release.svg" width="84" height="20" alt="v0.1.0"> <img src="https://srikolagani.github.io/github-profile/badges/new.svg" width="56" height="20" alt="New"></h3>
-      <p>Replace twenty slow browser tabs with a native macOS Liquid Glass desktop workspace for Salesforce developers and architects. Glassforce pairs a Rust + Tauri 2 core with a Monaco-powered SOQL Studio, inline record editing, interactive Schema Explorer with live ERD graphing, side-by-side Org Metadata Comparison, Apex Debug Log analysis, and a multi-provider AI assistant (OpenAI, Claude, Gemini, Ollama) secured strictly via macOS Keychain OAuth 2.0 PKCE.</p>
+      <p>Replace twenty slow browser tabs with a native macOS Liquid Glass desktop workspace for Salesforce developers and admins. Glassforce pairs a Rust + Tauri 2 core with a Monaco-powered SOQL Studio, inline record editing, interactive Schema Explorer with live ERD graphing, side-by-side Org Metadata Comparison, Apex Debug Log analysis, and a multi-provider AI assistant (OpenAI, Claude, Gemini, Ollama) secured strictly via macOS Keychain OAuth 2.0 PKCE.</p>
       <p><a href="https://srikolagani.github.io/glassforce-public/">Website</a> · <a href="https://github.com/srikolagani/glassforce-public/releases/tag/v0.1.0">Download macOS DMG (v0.1.0)</a> · <a href="https://github.com/srikolagani/homebrew-tap">Homebrew Cask (<code>brew install --cask srikolagani/tap/glassforce</code>)</a></p>
       <p><sub>Rust · Tauri 2 · React 19 · TypeScript · Monaco Editor · macOS Keychain</sub></p>
     </td>
@@ -38,13 +38,13 @@ I build autonomous AI GTM systems, enterprise revenue architectures, and fast lo
     <td width="80%" valign="top">
       <h3><a href="https://github.com/srikolagani/tiny-crm">TinyCRM</a> <img src="https://srikolagani.github.io/github-profile/badges/new.svg" width="56" height="20" alt="New"></h3>
       <p>Keep relationship context sharp without enterprise CRM bloat. TinyCRM is a calm, local-first personal CRM across macOS, iPhone, and iPad split-view built with SwiftUI, a Rust + Tauri desktop shell, and a first-class Model Context Protocol (MCP) server. Live Session capture and the AI Inbox extract structured contact updates and follow-ups from meeting notes behind a strict human-in-the-loop accept/reject gate with optimistic concurrency control.</p>
-      <p><a href="https://github.com/srikolagani/tiny-crm">Repository</a> · <a href="https://srikolagani.github.io/#/projects">Architecture &amp; Overview</a></p>
+      <p><a href="https://github.com/srikolagani/tiny-crm">Repository</a> · <a href="https://srikolagani.github.io/#/projects">Project Overview</a></p>
       <p><sub>Swift 6 · SwiftUI (macOS / iOS / iPadOS) · Rust · Model Context Protocol (MCP) · Supabase</sub></p>
     </td>
   </tr>
 </table>
 
-[srikolagani.github.io](https://srikolagani.github.io/) is my personal site and engineering notebook. There is a playable 3-lap Formula 1 pixel Grand Prix, architecture notes on agentic GTM workflows, and deep dives into Glassforce and TinyCRM. [Step onto the grid](https://srikolagani.github.io/).
+[srikolagani.github.io](https://srikolagani.github.io/) is my personal site. There is a playable 3-lap Formula 1 pixel Grand Prix, my experience leading enterprise applications & AI GTM engineering at Elastic, and deep dives into Glassforce and TinyCRM. [Step onto the grid](https://srikolagani.github.io/).
 
 ---
 

@@ -25,15 +25,6 @@ export interface ExperienceItem {
   url?: string;
 }
 
-export interface WritingItem {
-  title: string;
-  date: string;
-  summary: string;
-  readingTime: string;
-  url: string;
-  category: string;
-}
-
 export interface SpeakingItem {
   event: string;
   title: string;
@@ -48,32 +39,33 @@ export const PORTFOLIO = {
   firstName: 'Sri',
   initials: 'SK',
   url: 'https://srikolagani.github.io',
-  role: 'Director of Enterprise Applications, RevOps & AI GTM Engineering',
+  role: 'Director, Enterprise Applications & GTM Engineering',
   roles: [
-    'Director, Enterprise Apps & AI GTM @ Elastic',
-    'Agentic GTM & Revenue Systems Architect',
-    '10x Certified Salesforce Application Architect',
+    'Director, Enterprise Apps, RevOps & AI GTM @ Elastic',
+    'Enterprise Applications & AI GTM Engineering Leader',
+    'Lead-to-Cash, RevOps & Agentic AI Transformation',
     'Builder of Glassforce & TinyCRM',
   ],
-  location: 'Dallas, TX',
+  location: 'Dallas, TX (Remote)',
   timezone: 'America/Chicago',
   email: 'sriharideep@live.com',
+  phone: '+1 (469) 600-8651',
   avatar: '/avatar-pixel.png',
   greeting: "Hey, I'm Sri",
   tagline:
-    'Architecting autonomous AI GTM systems, enterprise revenue platforms, and native developer tools.',
+    'Leading global enterprise engineering organizations, lead-to-cash ecosystems, and AI-first GTM transformation.',
   about: [
-    "I'm Sri Kolagani, Director of Enterprise Applications, RevOps & AI GTM Engineering at Elastic. With 13+ years of experience leading global engineering teams across SaaS, Medical Devices, FinTech, and Hi-Tech, I bridge enterprise systems of record with production-grade AI.",
-    'At Elastic, I lead global teams across Salesforce, MuleSoft, and AI GTM engineering—building multi-agent frameworks on AWS Bedrock, LangGraph, and Elasticsearch Vector Databases that drive millions in pipeline velocity, self-service case deflection, and automated revenue operations.',
-    'Beyond enterprise architecture, I love building fast, local-first, native tools like Glassforce (a macOS liquid-glass Salesforce desktop client in Rust + Tauri + React) and TinyCRM (a multi-platform SwiftUI + Rust + MCP personal CRM for macOS, iOS, and iPadOS).',
+    "I'm Sri Kolagani, Director of Enterprise Applications, RevOps & AI GTM Engineering at Elastic with more than 10 years of experience leading global engineering organizations, enterprise platform strategy, and AI-driven business transformation initiatives.",
+    'I have a proven track record modernizing lead-to-cash ecosystems, scaling secure enterprise platforms, and driving operational excellence across CRM, RevOps, revenue, and customer-facing systems—leading 30+ globally distributed leaders, engineers, and administrators across Financial Operations, Field Effectiveness, Corporate Functions, and Security Operations.',
+    'Alongside enterprise engineering leadership, I build fast, local-first native tools like Glassforce (a macOS Liquid Glass Salesforce workspace built with Rust + Tauri 2 + React) and TinyCRM (a native SwiftUI + Rust + MCP relationship workspace for macOS, iPhone, and iPad).',
   ],
   tldr: [
-    'Director of Enterprise Apps & AI GTM @ Elastic',
-    '10x Certified Salesforce Application Architect',
-    'Multi-Agent Systems (Bedrock, LangGraph, ES Vector)',
+    'Director, Enterprise Apps, RevOps & AI GTM @ Elastic',
+    'Leading 30+ Global Engineers, Leaders & Admins',
+    'Enterprise RevOps MCP-as-a-Service & AI Agents',
     'Creator of Glassforce & TinyCRM',
-    'Featured Speaker: Google DevFest, TrailheaDX, Dreamforce',
-    'MBA (CSU Chico) & B.Tech (Shiv Nadar University)',
+    'Speaker: Google DevFest Troy, Dreamforce, TrailheaDX',
+    'MBA (CSU Chico) & B.Tech Computer Engineering (SNU)',
   ],
   socials: {
     github: 'https://github.com/srikolagani',
@@ -81,6 +73,7 @@ export const PORTFOLIO = {
     email: 'mailto:sriharideep@live.com',
     resume: '/Sri_Kolagani_Resume.pdf',
     blog: 'https://www.elastic.co/search-labs/author/sri-kolagani',
+    executiveBlog: 'https://www.elastic.co/blog/author/sri-kolagani',
     sfdcbrewery: 'https://sfdcbrewery.github.io',
   },
   github: {
@@ -90,8 +83,8 @@ export const PORTFOLIO = {
     {
       title: 'Glassforce',
       blurb:
-        'A native macOS Liquid Glass desktop workspace for Salesforce developers and architects. Combines SOQL Studio, Schema Explorer, Org Compare, Security Health Check, and a multi-provider AI Assistant in a fast Rust + Tauri 2 app.',
-      story: `Glassforce reimagines how Salesforce engineers, architects, and admins interact with their orgs on macOS. Instead of juggling dozens of browser tabs and slow web consoles, Glassforce delivers a native Liquid Glass desktop experience powered by a Rust + Tauri 2 core and React 19 + TypeScript frontend.
+        'A native macOS Liquid Glass desktop workspace for Salesforce developers and admins. Combines SOQL Studio, Schema Explorer, Org Compare, Security Health Check, and a multi-provider AI Assistant in a fast Rust + Tauri 2 app.',
+      story: `Glassforce reimagines how Salesforce engineers and administrators interact with their orgs on macOS. Instead of juggling dozens of browser tabs and slow web consoles, Glassforce delivers a native Liquid Glass desktop experience powered by a Rust + Tauri 2 core and React 19 + TypeScript frontend.
 
 It features a full Monaco-powered SOQL Studio with syntax autocomplete, inline record editing, and CSV/JSON export; an interactive Schema Explorer with live ERD relationship graphing; side-by-side Org Metadata Comparison; and a real-time Apex Debug Log analyzer.
 
@@ -118,7 +111,7 @@ Every credential is stored strictly in the macOS Keychain via OAuth 2.0 PKCE—z
       categories: ['Native & Desktop', 'AI & Agents', 'Fullstack'],
       highlights: [
         'SOQL Studio + Monaco Editor + Live Inline Editing',
-        'Interactive Schema Explorer & Org Diffing',
+        'Interactive Schema Explorer & Org Metadata Diffing',
         'Native macOS Keychain OAuth 2.0 PKCE Security',
         'Homebrew Cask: brew install --cask srikolagani/tap/glassforce',
       ],
@@ -160,56 +153,81 @@ TinyCRM also includes a first-class Model Context Protocol (MCP) server, allowin
   experience: [
     {
       company: 'Elastic',
-      role: 'Director, Enterprise Applications, RevOps & AI GTM Engineering',
-      period: 'Apr 2021 – Present',
-      location: 'Dallas, TX',
+      role: 'Director of Enterprise Applications, RevOps & AI GTM Engineering',
+      period: 'Nov 2025 – Present',
+      location: 'Dallas, TX (Remote)',
       url: 'https://www.elastic.co',
       blurb:
-        'Leading a global organization of 20+ engineers, architects, and PMs across Salesforce, MuleSoft, and AI GTM Engineering. Progressed from Principal Architect → Senior Manager → Director while spearheading agentic AI systems across Sales, Marketing, and Support.',
+        'Leading an enterprise CRM, RevOps, and AI GTM engineering organization of 30+ globally distributed leaders, engineers, and administrators across Financial Operations, Field Effectiveness, Corporate Functions, and Security Operations.',
       highlights: [
-        'Architected and deployed a multi-agent AI SDR & Outbound GTM engine using AWS Bedrock, LangGraph, Elasticsearch Vector DB, and Retell AI—generating $2M+ in qualified pipeline and automating 10,000+ personalized prospect interactions.',
-        'Built an AI Support Engineer & Case Deflection platform powered by RAG over Elasticsearch, reducing MTTR by 35% and deflecting 28%+ of Tier-1/Tier-2 cases.',
-        'Engineered an automated AI Deal Desk & Order Review system combining LLMs with CPQ/Billing rules to cut contract review cycles by 60%.',
-        'Led enterprise-wide Quote-to-Cash, PLG cloud marketplaces (AWS, GCP, Azure), and RevOps transformation scaling Elastic past $1.3B+ ARR.',
+        'Lead Forward Deployed Engineers (FDE) to build autonomous AI assistants and agentic workflows—including IT Support, Sales Assistants, and Pricing Estimators—improving quoting speed, support responsiveness, and overall productivity.',
+        'Spearheaded enterprise RevOps MCP-as-a-Service and centralized AI Skills Repository initiatives to establish foundational infrastructure for scalable enterprise AI adoption.',
+        'Established an enterprise AI governance council to standardize patterns, reduce platform sprawl, enforce security controls, and oversee responsible AI adoption across business and engineering teams.',
+        'Own the complete lead-to-cash technology stack across Quote-to-Cash, billing, subscriptions, RevOps, Customer Success, Marketing, Legal, HR, IT, and compliance.',
+      ],
+    },
+    {
+      company: 'Elastic',
+      role: 'Sr. Engineering Manager, Enterprise Applications',
+      period: 'Jun 2022 – Nov 2025',
+      location: 'Dallas, TX (Remote)',
+      url: 'https://www.elastic.co',
+      blurb:
+        'Built and scaled domain-specific engineering teams, directing global hiring, performance management, capacity planning, and technical leadership development across enterprise GTM and revenue systems.',
+      highlights: [
+        'Designed and led engineering teams implementing enterprise GTM solutions including Salesforce Sales Engagement, Marketo, Drift, LeanData, and revenue intelligence platforms (Gong, Clari, Aviso).',
+        'Owned multi-year platform programs including Revenue Cloud migration (CPQ), Professional Services Automation, CLM automation, SoX alignment, and FedRAMP High readiness.',
+        'Embedded zero-trust security and test-driven engineering while replacing third-party SaaS dependencies with native Salesforce capabilities to eliminate technical debt.',
+        'Championed an internal innovation culture through Elastic-on-Elastic initiatives, engineering hackathons, operational monitoring dashboards, and published engineering blogs.',
+      ],
+    },
+    {
+      company: 'Elastic',
+      role: 'Manager, Software Engineering · Member of Technical Staff',
+      period: 'Nov 2018 – Jun 2022',
+      location: 'Dallas, TX (Remote)',
+      url: 'https://www.elastic.co',
+      blurb:
+        'Progressed from Member of Technical Staff (11/2018 – 03/2020) to Manager, Software Engineering (03/2020 – 06/2022), directing agile Business-Technology Flex squads shipping high-impact features across Sales, Service, and Experience Clouds.',
+      highlights: [
+        'Directed the opportunity-related technical roadmap, embedding zero-trust security, TDD/BDD discipline, refactoring, and collective code ownership into every sprint.',
+        'Established rigorous change-management and SDLC processes satisfying legal, info-sec, and engineering compliance requirements.',
+        'Boosted team engagement and performance through continuous mentoring, regular 1-1s, and merit reviews.',
       ],
     },
     {
       company: 'Western Union',
-      role: 'Lead Solution Architect',
-      period: 'Oct 2019 – Apr 2021',
-      location: 'Denver, CO',
+      role: 'Sr. Salesforce Developer',
+      period: 'Feb 2018 – Nov 2018',
+      location: 'San Francisco, CA',
       url: 'https://www.westernunion.com',
       blurb:
-        'Led global B2B/B2C digital transformation and enterprise CRM architecture across 200+ countries and territories, integrating core payment rails with Salesforce Sales, Service, and Marketing Clouds.',
+        'Engineered enterprise Salesforce applications, integrations, and automated workflows across global financial services operations.',
       highlights: [
-        'Architected high-volume partner onboarding and real-time KYC/AML compliance integrations handling millions of global transactions.',
-        'Designed event-driven MuleSoft and Kafka integration patterns connecting legacy mainframes with modern cloud applications.',
-        'Established global DevOps CI/CD governance, automated testing gates, and multi-org release management.',
+        'Delivered Sales, Service, and Experience Cloud features supporting high-volume partner and customer onboarding workflows.',
       ],
     },
     {
       company: 'Intuitive Surgical',
-      role: 'Senior Salesforce Platform Architect',
-      period: 'May 2017 – Oct 2019',
-      location: 'Sunnyvale, CA',
+      role: 'Business Apps Intern',
+      period: 'Oct 2017 – Dec 2017',
+      location: 'Santa Clara, CA',
       url: 'https://www.intuitivesurgical.com',
       blurb:
-        'Architected global Field Service, IoT telemetry, and Commercial platforms supporting the da Vinci robotic surgical ecosystem across hospitals worldwide.',
+        'Supported enterprise business applications and CRM automation initiatives for medical device operations.',
       highlights: [
-        'Engineered proactive IoT diagnostic alerting from da Vinci surgical systems into Salesforce Field Service Lightning for predictive maintenance.',
-        'Scaled global contract lifecycle, clinical training, and medical device compliance workflows (FDA 21 CFR Part 11).',
+        'Contributed to business application enhancements, workflow automation, and system testing.',
       ],
     },
     {
       company: 'Hitachi Data Systems',
-      role: 'Senior Enterprise Applications Engineer',
-      period: 'Jan 2015 – May 2017',
+      role: 'Systems Analyst',
+      period: 'Jan 2017 – Oct 2017',
       location: 'Santa Clara, CA',
       blurb:
-        'Built global partner portal, CPQ pricing engines, and enterprise quote-to-order integrations for cloud infrastructure and storage hardware.',
+        'Analyzed, configured, and supported enterprise CRM and quote-to-order systems for storage and cloud infrastructure lines.',
       highlights: [
-        'Delivered global Partner Community and Deal Registration workflows serving 5,000+ channel partners.',
-        'Automated complex hardware/software bundle configurations and ERP order fulfillment.',
+        'Partnered with cross-functional business and IT teams on requirements analysis, system configuration, and release validation.',
       ],
     },
   ] as ExperienceItem[],
@@ -220,25 +238,25 @@ TinyCRM also includes a first-class Model Context Protocol (MCP) server, allowin
       year: '2025',
       type: 'Featured Speaker',
       description:
-        'Deep dive into architecting grounded multi-agent workflows using Elasticsearch Vector Database, LangGraph, and hybrid retrieval patterns.',
+        'Deep dive into building grounded multi-agent workflows using Elasticsearch Vector Database, LangGraph, and hybrid retrieval patterns.',
       url: 'https://www.youtube.com/watch?v=OzStbTUZqyw',
     },
     {
       event: 'Salesforce TrailheaDX & Dreamforce',
-      title: 'Enterprise Event-Driven Architecture & AI-Powered Revenue Workflows',
+      title: 'Enterprise Engineering & AI-Powered Revenue Workflows',
       year: '2024',
       type: 'Conference Speaker',
       description:
-        'Presented scalable enterprise patterns for combining Salesforce, MuleSoft, and generative AI agents with strict governance and observability.',
+        'Presented scalable enterprise patterns for combining Salesforce, MuleSoft, and generative AI agents with governance and observability.',
       url: 'https://www.youtube.com/watch?v=iwec6dpAiMw',
     },
     {
       event: 'Elastic Search Labs',
-      title: 'Author — AI Agents, Vector Search & RAG Architecture Series',
+      title: 'Elastic Search Developer Blogs — AI Agents, Vector Search & RAG',
       year: '2025',
-      type: 'Technical Publications',
+      type: 'Developer Blog',
       description:
-        'Published technical deep-dives on building agentic GTM workflows, semantic reranking, and enterprise RAG pipelines on Elastic Search Labs.',
+        'Published technical articles on building agentic GTM workflows, semantic reranking, and enterprise RAG pipelines on Elastic Search Labs.',
       url: 'https://www.elastic.co/search-labs/author/sri-kolagani',
     },
     {
@@ -247,14 +265,14 @@ TinyCRM also includes a first-class Model Context Protocol (MCP) server, allowin
       year: '2025',
       type: 'Executive Blog',
       description:
-        'Executive perspective on transforming enterprise IT and RevOps into an AI-native engineering organization.',
+        'Executive perspective on transforming enterprise applications and RevOps into an AI-first engineering organization.',
       url: 'https://www.elastic.co/blog/author/sri-kolagani',
     },
     {
       event: 'n8n Creator Hub',
-      title: 'Automate Lead Qualification Voice Calls with Salesforce, Retell AI & OpenAI',
+      title: 'Automate Lead Qualification Calls with Salesforce, Retell AI & OpenAI Analysis',
       year: '2025',
-      type: 'Open Workflow Template',
+      type: 'Open Source Template',
       description:
         'Published an open-source production workflow template orchestrating autonomous AI voice qualification calls with real-time CRM sync.',
       url: 'https://n8n.io/workflows/8929-automate-lead-qualification-calls-with-salesforce-retell-ai-and-openai-analysis/',
@@ -264,63 +282,66 @@ TinyCRM also includes a first-class Model Context Protocol (MCP) server, allowin
     education: [
       {
         school: 'California State University, Chico',
-        degree: 'Master of Business Administration (MBA) — Enterprise Information Systems',
-        period: 'Chico, CA',
+        degree: 'Master of Business Administration (MBA)',
+        period: '2015 – 2017',
       },
       {
         school: 'Shiv Nadar University',
-        degree: 'Bachelor of Technology (B.Tech) — Electronics & Communication Engineering',
-        period: 'India',
+        degree: 'Bachelor of Technology, Computer Engineering',
+        period: '2011 – 2015',
       },
     ],
     certifications: [
-      'Salesforce Certified Application Architect (10x Salesforce Certified)',
-      'Salesforce Certified System Architect & Data Architect',
+      '10x Salesforce Certified (Application Architect & CPQ Specialist)',
       'AWS Certified Solutions Architect – Associate',
-      'MuleSoft Certified Platform Architect & Developer',
-      'Certified ScrumMaster (CSM)',
+      'Certified MuleSoft Developer – Level 1',
+      'SAFe 5 Product Owner / Product Manager (POPM)',
+      'SAFe 5 Scrum Master',
+      'SAP HANA Technology Associate',
     ],
   },
   skillsByCategory: {
-    'AI & Agents': [
-      'AWS Bedrock',
-      'LangGraph',
+    'AI & Agentic Systems': [
       'LangChain',
-      'Elasticsearch Vector DB',
-      'RAG & Hybrid Search',
+      'LangGraph',
       'Model Context Protocol (MCP)',
-      'OpenAI / Anthropic Claude',
-      'Retell Voice AI',
-      'n8n Automation',
+      'RAG Systems',
+      'Elastic Agent Builder',
+      'OpenAI / Azure OpenAI',
+      'Vertex AI & LiteLLM',
+      'Vector Search & Embeddings',
+      'Prompt Caching',
+      'n8n / OpenClaw / Hermes',
     ],
-    'Native & Web': [
+    'GTM, CRM & Revenue': [
+      'Salesforce Sales & Service Cloud',
+      'Revenue Cloud & Salesforce CPQ',
+      'Agentforce',
+      'Certinia (FinancialForce PSA)',
+      'MuleSoft & NetSuite',
+      'ServiceNow & Workday',
+      'Gong / Clari / Aviso',
+      'Marketo / Drift / LeanData',
+      'Ironclad / DocuSign / Tackle.io',
+    ],
+    'Engineering & Native': [
       'Rust',
       'Tauri 2',
-      'Swift 6',
-      'SwiftUI',
-      'TypeScript',
-      'React 19',
+      'Swift 6 & SwiftUI',
+      'TypeScript & React 19',
       'Python',
-      'Node.js',
-      'Tailwind CSS',
+      'Apex, SOQL & LWC',
+      'OmniStudio',
+      'SFDX / Salesforce CLI',
+      'Git & CI/CD',
     ],
-    'Enterprise & RevOps': [
-      'Salesforce Architecture',
-      'Apex & LWC',
-      'Salesforce CPQ & Billing',
-      'MuleSoft Anypoint',
-      'Quote-to-Cash',
-      'PLG Cloud Marketplaces',
-      'Workato',
-    ],
-    'Cloud & Data': [
-      'AWS',
-      'Elasticsearch / ES|QL',
+    'Data & Analytics': [
+      'Elasticsearch / Kibana',
+      'BigQuery',
+      'Tableau',
       'Supabase / PostgreSQL',
-      'Snowflake',
-      'Docker',
-      'Kafka',
-      'GitHub Actions CI/CD',
+      'Alteryx',
+      'Outreach & Seismic',
     ],
   },
 };

@@ -14,31 +14,18 @@ import {
   SideNavigation,
   SpeakingSection,
   TechStackSection,
-  WritingSection,
 } from './components/Sections';
-import { getPost, type Post } from './data/posts';
-import { PostPage } from './pages/PostPage';
 
-interface RouteState {
-  tab: ActiveTab;
-  postSlug: string | null;
-}
-
-function parseLocationHash(): RouteState {
-  const raw = window.location.hash.replace(/^#\/?/, '');
-  if (!raw || raw === '/') return { tab: 'home', postSlug: null };
-  const postMatch = raw.match(/^post\/([^/]+)/);
-  if (postMatch) {
-    return { tab: 'writing', postSlug: postMatch[1] };
+function parseLocationHash(): ActiveTab {
+  const raw = window.location.hash.replace(/^#\/?/, '').trim();
+  if (raw === 'projects' || raw === 'experience' || raw === 'contact') {
+    return raw;
   }
-  if (raw === 'projects' || raw === 'experience' || raw === 'writing' || raw === 'contact') {
-    return { tab: raw, postSlug: null };
-  }
-  return { tab: 'home', postSlug: null };
+  return 'home';
 }
 
 export default function App() {
-  const [route, setRoute] = useState<RouteState>(() => parseLocationHash());
+  const [activeTab, setActiveTab] = useState<ActiveTab>(() => parseLocationHash());
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     try {
@@ -83,7 +70,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const onHash = () => setRoute(parseLocationHash());
+    const onHash = () => setActiveTab(parseLocationHash());
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
@@ -101,46 +88,31 @@ export default function App() {
 
   const selectTab = (tab: ActiveTab) => {
     window.location.hash = tab === 'home' ? '#/' : `#/${tab}`;
-    setRoute({ tab, postSlug: null });
+    setActiveTab(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const openPost = (post: Post) => {
-    window.location.hash = `#/post/${post.slug}`;
-    setRoute({ tab: 'writing', postSlug: post.slug });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const activePost = route.postSlug ? getPost(route.postSlug) : undefined;
 
   return (
     <div className="relative min-h-screen bg-[var(--bg)] font-sans text-[var(--fg)] antialiased transition-colors duration-300">
       <Header
-        activeTab={route.tab}
+        activeTab={activeTab}
         onSelectTab={selectTab}
         onOpenPalette={() => setPaletteOpen(true)}
         theme={theme}
         onToggleTheme={toggleTheme}
       />
 
-      <SideNavigation visible={route.tab === 'home' && !activePost} />
+      <SideNavigation visible={activeTab === 'home'} />
 
       <main className="relative z-10">
-        {activePost ? (
-          <PostPage post={activePost} onBack={() => selectTab('writing')} />
-        ) : route.tab === 'projects' ? (
+        {activeTab === 'projects' ? (
           <ProjectsSection searchable />
-        ) : route.tab === 'experience' ? (
+        ) : activeTab === 'experience' ? (
           <>
             <ExperienceSection detailed />
             <SpeakingSection />
           </>
-        ) : route.tab === 'writing' ? (
-          <>
-            <WritingSection onSelectPost={openPost} />
-            <SpeakingSection />
-          </>
-        ) : route.tab === 'contact' ? (
+        ) : activeTab === 'contact' ? (
           <>
             <QuickContactGrid />
             <ContactPageSection />
@@ -157,11 +129,6 @@ export default function App() {
             <ExperienceSection />
             <SpeakingSection />
             <TechStackSection />
-            <WritingSection
-              limit={4}
-              onSelectPost={openPost}
-              onViewAll={() => selectTab('writing')}
-            />
             <GitHubActivitySection />
           </>
         )}

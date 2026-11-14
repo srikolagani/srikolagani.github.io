@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img">
+  <title>TinyCRM</title>
+  <defs>
+    <linearGradient id="tc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17324d"/>
+      <stop offset="1" stop-color="#0f4359"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#tc-bg)" stroke="#f38b52" stroke-width="1.5"/>
+  <circle cx="24" cy="24" r="6" fill="#fbf3e4"/>
+  <path d="M14 42c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="none" stroke="#fbf3e4" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="43" cy="22" r="5" fill="#f38b52"/>
+  <circle cx="46" cy="40" r="5" fill="#55b8d3"/>
+  <path d="M29 24h9M31 35l10 4M44 27l1 8" fill="none" stroke="#e7ad42" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

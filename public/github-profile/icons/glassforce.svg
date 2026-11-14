@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img">
+  <title>Glassforce</title>
+  <defs>
+    <linearGradient id="gf-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2942"/>
+      <stop offset="1" stop-color="#1f6f8b"/>
+    </linearGradient>
+    <linearGradient id="gf-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7dd3fc" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity=".25"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#gf-bg)" stroke="#55b8d3" stroke-width="1.5"/>
+  <rect x="10" y="12" width="44" height="40" rx="9" fill="#0b1726" fill-opacity=".65" stroke="url(#gf-glass)" stroke-width="1.5"/>
+  <circle cx="16" cy="18" r="2" fill="#ef6b66"/>
+  <circle cx="22" cy="18" r="2" fill="#e7ad42"/>
+  <circle cx="28" cy="18" r="2" fill="#6fc6b5"/>
+  <path d="M16 29l6 5-6 5" fill="none" stroke="#55b8d3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M26 39h12" fill="none" stroke="#f38b52" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="44" cy="31" r="4.5" fill="none" stroke="#7dd3fc" stroke-width="2.2"/>
+</svg>

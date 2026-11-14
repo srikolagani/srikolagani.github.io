@@ -1427,9 +1427,9 @@ export function CommandPalette({
     {
       id: 'glassforce',
       title: 'Open Glassforce Website',
-      subtitle: 'https://srikolagani.github.io/glassforce-public/',
+      subtitle: 'https://srikolagani.github.io/glassforce/',
       action: () => {
-        window.open('https://srikolagani.github.io/glassforce-public/', '_blank');
+        window.open('https://srikolagani.github.io/glassforce/', '_blank');
         onClose();
       },
     },

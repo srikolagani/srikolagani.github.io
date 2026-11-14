@@ -102,9 +102,9 @@ Every credential is stored strictly in the macOS Keychain via OAuth 2.0 PKCE—z
       ],
       year: '2026',
       links: {
-        live: 'https://srikolagani.github.io/glassforce-public/',
-        source: 'https://github.com/srikolagani/glassforce-public',
-        release: 'https://github.com/srikolagani/glassforce-public/releases/tag/v0.1.0',
+        live: 'https://srikolagani.github.io/glassforce/',
+        source: 'https://github.com/srikolagani/glassforce',
+        release: 'https://github.com/srikolagani/glassforce/releases/tag/v0.1.0',
       },
       featured: true,
       status: 'v0.1.0 Released',

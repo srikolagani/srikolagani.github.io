@@ -29,9 +29,9 @@ export default function App() {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     try {
-      return localStorage.getItem('sri-theme') === 'light' ? 'light' : 'dark';
+      return localStorage.getItem('sri-theme-anthropic') === 'dark' ? 'dark' : 'light';
     } catch {
-      return 'dark';
+      return 'light';
     }
   });
 
@@ -45,7 +45,7 @@ export default function App() {
       root.classList.remove('light');
     }
     try {
-      localStorage.setItem('sri-theme', theme);
+      localStorage.setItem('sri-theme-anthropic', theme);
     } catch {
       // ignore
     }

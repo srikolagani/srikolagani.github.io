@@ -388,8 +388,8 @@ class F1GameSimulation {
     this.trackTop = Math.max(26, Math.round(h * 0.32));
     this.trackBottom = h - Math.max(10, Math.round(h * 0.1));
 
-    this.you = this.createCar('you', 'YOU', '#ef4444', '#fca5a5', '#facc15', 0);
-    this.sri = this.createCar('sri', 'SRI', '#00b4d8', '#90e0ef', '#f472b6', 1);
+    this.you = this.createCar('you', 'YOU', '#d97757', '#f0eee6', '#faf9f5', 0);
+    this.sri = this.createCar('sri', 'SRI', '#788c5d', '#d4a27f', '#faf9f5', 1);
 
     this.resetPositions();
     if (this.demo) {
@@ -731,18 +731,18 @@ class F1GameSimulation {
       ctx.translate(Math.round((Math.random() - 0.5) * 2), Math.round((Math.random() - 0.5) * 2));
     }
 
-    // Night Grand Prix sky
-    ctx.fillStyle = '#070a14';
+    // Anthropic Warm Slate Grand Prix sky
+    ctx.fillStyle = '#141413';
     ctx.fillRect(0, 0, W, trackTop);
 
     // Grandstand & floodlights
     const standTop = Math.max(4, Math.floor(trackTop * 0.22));
-    ctx.fillStyle = '#0f172a';
+    ctx.fillStyle = '#1c1b19';
     ctx.fillRect(0, standTop, W, trackTop - standTop);
 
     // Crowd pixels scrolling slightly in parallax
     const parallax = Math.floor(this.cameraX * 0.18);
-    const crowdColors = ['#ef4444', '#38bdf8', '#facc15', '#f8fafc', '#fb923c'];
+    const crowdColors = ['#d97757', '#faf9f5', '#d4a27f', '#788c5d', '#b0aea5'];
     for (let y = standTop + 2; y < trackTop - 7; y += 3) {
       for (let x = 0; x < W; x += 4) {
         const seed = ((x + parallax) * 13 + y * 31) & 255;
@@ -755,7 +755,7 @@ class F1GameSimulation {
 
     // Sponsor barrier with scrolling banner
     const barrierY = trackTop - 7;
-    ctx.fillStyle = '#090d16';
+    ctx.fillStyle = '#111110';
     ctx.fillRect(0, barrierY, W, 7);
     const bannerText = 'SRIKOLAGANI.GITHUB.IO';
     const bannerStep = measurePixelText(bannerText, 1) + 18;
@@ -767,20 +767,20 @@ class F1GameSimulation {
         x,
         barrierY + 1,
         1,
-        idx % 2 === 0 ? '#ef4444' : '#38bdf8'
-     );
+        idx % 2 === 0 ? '#d97757' : '#faf9f5'
+      );
     }
 
     // Asphalt Track
-    ctx.fillStyle = '#18181b';
+    ctx.fillStyle = '#1f1e1b';
     ctx.fillRect(0, trackTop, W, trackBottom - trackTop);
 
     // Scrolling asphalt stripes & lane markers
     const kerbW = 8;
     const scrollKerb = Math.floor(this.cameraX * 1.2) % (kerbW * 2);
     for (let x = -scrollKerb; x < W; x += kerbW) {
-      const isRed = Math.floor((x + Math.floor(this.cameraX * 1.2)) / kerbW) % 2 === 0;
-      ctx.fillStyle = isRed ? '#ef4444' : '#f8fafc';
+      const isCrail = Math.floor((x + Math.floor(this.cameraX * 1.2)) / kerbW) % 2 === 0;
+      ctx.fillStyle = isCrail ? '#d97757' : '#faf9f5';
       ctx.fillRect(x, trackTop, kerbW, 3);
       ctx.fillRect(x, trackBottom - 3, kerbW, 3);
     }
@@ -808,7 +808,7 @@ class F1GameSimulation {
     }
 
     // Bottom pit wall / grass apron
-    ctx.fillStyle = '#0b1320';
+    ctx.fillStyle = '#141413';
     ctx.fillRect(0, trackBottom, W, H - trackBottom);
 
     // Particles
@@ -841,7 +841,7 @@ class F1GameSimulation {
 
     if (!this.demo) {
       const labelY = Math.round(this.you.y) - 13;
-      drawPixelText(ctx, 'YOU', Math.round(this.you.x) + 2, labelY, 1, '#fca5a5', '#000000');
+      drawPixelText(ctx, 'YOU', Math.round(this.you.x) + 2, labelY, 1, '#d97757', '#000000');
     }
 
     this.drawHud(ctx);
@@ -911,22 +911,22 @@ class F1GameSimulation {
     const boxX = Math.round((W - boxW) / 2);
     const boxY = 2;
 
-    ctx.fillStyle = 'rgba(6,10,24,0.86)';
+    ctx.fillStyle = 'rgba(20,20,19,0.9)';
     ctx.fillRect(boxX, boxY, boxW, boxH);
-    ctx.fillStyle = 'rgba(255,255,255,0.2)';
+    ctx.fillStyle = 'rgba(232,230,220,0.22)';
     ctx.fillRect(boxX, boxY, boxW, 1);
     ctx.fillRect(boxX, boxY + boxH - 1, boxW, 1);
 
     const textY = boxY + 3;
-    drawPixelText(ctx, leftName, boxX + 5, textY + (5 * scale - 5) / 2, 1, '#f87171');
-    drawPixelText(ctx, scoreStr, boxX + 5 + wLeft + gap, textY, scale, '#ffffff');
+    drawPixelText(ctx, leftName, boxX + 5, textY + (5 * scale - 5) / 2, 1, '#d97757');
+    drawPixelText(ctx, scoreStr, boxX + 5 + wLeft + gap, textY, scale, '#faf9f5');
     drawPixelText(
       ctx,
       rightName,
       boxX + 5 + wLeft + gap + wScore + gap,
       textY + (5 * scale - 5) / 2,
       1,
-      '#38bdf8'
+      '#a8c08a'
     );
 
     // FIA 5 Red Lights Gantry during countdown
@@ -1058,7 +1058,7 @@ function F1Canvas({ demo = false, getControls, onUi, onSfx, gameRef }: F1CanvasP
   }, [demo, gameRef]);
 
   return (
-    <div ref={wrapRef} className="absolute inset-0 overflow-hidden bg-[#070a14]">
+    <div ref={wrapRef} className="absolute inset-0 overflow-hidden bg-[#141413]">
       <canvas
         ref={canvasRef}
         className="absolute inset-0 h-full w-full select-none"
@@ -1089,8 +1089,8 @@ export function F1GameBanner({ onNavigateContact }: { onNavigateContact?: () => 
         {!open && <F1Canvas demo />}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/40 to-transparent" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.05)_0,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_5px)]" />
-        <div className="pointer-events-none absolute left-2.5 top-2.5 flex items-center gap-1.5 border border-white/20 bg-black/65 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-white/80 backdrop-blur">
-          <span className="size-1.5 rounded-full bg-red-500 animate-pulse" />
+        <div className="pointer-events-none absolute left-2.5 top-2.5 flex items-center gap-1.5 border border-[#e8e6dc]/20 bg-[#141413]/80 px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-[#faf9f5]/90 backdrop-blur">
+          <span className="size-1.5 rounded-full bg-[#d97757] animate-pulse" />
           <span>F1 GRAND PRIX · 3 LAPS</span>
         </div>
         <button
@@ -1100,7 +1100,7 @@ export function F1GameBanner({ onNavigateContact }: { onNavigateContact?: () => 
             e.stopPropagation();
             launchModal();
           }}
-          className="absolute bottom-2 right-2 flex items-center gap-2 border border-white/30 bg-black/75 px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-widest text-white backdrop-blur transition-colors hover:bg-white hover:text-black cursor-pointer"
+          className="absolute bottom-2 right-2 flex items-center gap-2 border border-[#d97757]/60 bg-[#d97757] px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-widest text-[#faf9f5] backdrop-blur transition-colors hover:bg-[#faf9f5] hover:text-[#141413] cursor-pointer"
           aria-label="Race Formula 1 against Sri"
         >
           <span>Race me</span>
@@ -1239,20 +1239,20 @@ function F1RaceModal({
       aria-modal="true"
       aria-label="Formula 1 Grand Prix mini-game"
     >
-      <div className="flex w-full max-w-[920px] flex-col border border-dashed border-white/20 bg-[#0a0a0a] text-white shadow-2xl">
+      <div className="flex w-full max-w-[920px] flex-col border border-dashed border-[#e8e6dc]/25 bg-[#141413] text-[#faf9f5] shadow-2xl">
         {/* Top bar */}
-        <div className="flex h-11 items-center justify-between border-b border-dashed border-white/15 px-4">
+        <div className="flex h-11 items-center justify-between border-b border-dashed border-[#e8e6dc]/15 px-4">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-white/70">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#faf9f5]/80">
               F1 Grand Prix · First to {TARGET_LAPS} Laps
             </span>
             <div className="hidden items-center gap-1.5 sm:flex">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-sky-400">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#d97757]">
                 DRS
               </span>
-              <div className="h-2 w-20 overflow-hidden border border-white/20 bg-white/5">
+              <div className="h-2 w-20 overflow-hidden border border-[#e8e6dc]/20 bg-white/5">
                 <div
-                  className="h-full bg-sky-400 transition-all duration-150"
+                  className="h-full bg-[#d97757] transition-all duration-150"
                   style={{ width: `${ui.drsCharge}%` }}
                 />
               </div>

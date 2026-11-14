@@ -84,7 +84,7 @@ export function Header({
             <span className="font-serif text-lg tracking-wide text-[var(--fg)] sm:text-xl">
               {PORTFOLIO.name}
             </span>
-            <span className="hidden rounded border border-[var(--line)] bg-[var(--chip)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--soft)] sm:inline-block">
+            <span className="hidden rounded border border-[var(--accent-border)] bg-[var(--accent-soft)] px-1.5 py-0.5 font-mono text-[10px] font-medium text-[var(--accent)] sm:inline-block">
               ~/sri
             </span>
           </button>
@@ -103,7 +103,7 @@ export function Header({
                 >
                   {label}
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100 ${
+                    className={`absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-[var(--accent)] transition-transform duration-300 group-hover:origin-left group-hover:scale-x-100 ${
                       active ? 'origin-left scale-x-100' : ''
                     }`}
                   />
@@ -329,7 +329,7 @@ export function HeroSection({
                 </span>
                 <span>·</span>
                 <span className="flex items-center gap-1.5">
-                  <span className="size-1.5 rounded-full bg-emerald-500" />
+                  <span className="size-1.5 rounded-full bg-[var(--accent)]" />
                   <span>Elastic · Enterprise Apps, RevOps & AI GTM</span>
                 </span>
               </p>
@@ -357,7 +357,7 @@ export function AboutSection() {
       <Container className="space-y-4 px-6 py-7 sm:px-8">
         {PORTFOLIO.about.map((para, idx) => (
           <div key={idx} className="flex gap-2.5 text-[14.5px] leading-relaxed text-[var(--muted)]">
-            <span className="font-mono text-[var(--soft)]">•</span>
+            <span className="font-mono text-[var(--accent)]">•</span>
             <p>{para}</p>
           </div>
         ))}
@@ -369,7 +369,7 @@ export function AboutSection() {
           <ul className="grid grid-cols-1 gap-2 font-mono text-[12.5px] text-[var(--muted)] sm:grid-cols-2">
             {PORTFOLIO.tldr.map((item) => (
               <li key={item} className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 flex-none rounded-full bg-emerald-500" />
+                <span className="h-1.5 w-1.5 flex-none rounded-full bg-[var(--accent)]" />
                 <span>{item}</span>
               </li>
             ))}
@@ -445,60 +445,60 @@ function ProjectPreviewGraphic({ project }: { project: ProjectItem }) {
 
       {/* Top badges */}
       <div className="relative z-20 flex items-center justify-between gap-2">
-        <span className="flex items-center gap-1.5 rounded border border-emerald-500/40 bg-emerald-500/15 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-emerald-400 backdrop-blur-md">
+        <span className="flex items-center gap-1.5 rounded border border-[var(--accent-border)] bg-[var(--accent-soft)] px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-[var(--accent)] backdrop-blur-md">
           <span className="relative flex size-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-            <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-60" />
+            <span className="relative inline-flex size-1.5 rounded-full bg-[var(--accent)]" />
           </span>
           {project.status || 'Live'}
         </span>
         {project.featured && (
-          <span className="rounded border border-amber-500/30 bg-amber-400/10 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-amber-400">
+          <span className="rounded border border-[var(--line)] bg-[var(--chip)] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-[var(--fg)]">
             Featured
           </span>
         )}
       </div>
 
       {/* Stylized App Window Mockup in bottom right */}
-      <div className="pointer-events-none absolute -bottom-3 -right-4 h-32 w-60 overflow-hidden rounded-lg border border-[var(--line)] bg-[#0c0d12] p-2.5 shadow-2xl transition-all duration-300 group-hover:-bottom-1 group-hover:-right-2 sm:w-64">
+      <div className="pointer-events-none absolute -bottom-3 -right-4 h-32 w-60 overflow-hidden rounded-lg border border-[var(--line)] bg-[#191816] p-2.5 shadow-2xl transition-all duration-300 group-hover:-bottom-1 group-hover:-right-2 sm:w-64">
         <div className="mb-2 flex items-center justify-between border-b border-white/10 pb-1.5">
           <div className="flex items-center gap-1">
-            <span className="size-2 rounded-full bg-rose-500/80" />
-            <span className="size-2 rounded-full bg-amber-400/80" />
-            <span className="size-2 rounded-full bg-emerald-500/80" />
+            <span className="size-2 rounded-full bg-[#d97757]" />
+            <span className="size-2 rounded-full bg-[#d4a27f]" />
+            <span className="size-2 rounded-full bg-[#788c5d]" />
           </div>
-          <span className="font-mono text-[8px] uppercase tracking-widest text-white/50">
+          <span className="font-mono text-[8px] uppercase tracking-widest text-[#b0aea5]">
             {isGlassforce ? 'glassforce — soql studio' : 'tinycrm — relationship inbox'}
           </span>
         </div>
         {isGlassforce ? (
           <div className="space-y-1.5 font-mono text-[9px]">
-            <div className="text-sky-400">
-              SELECT <span className="text-emerald-300">Id, Name, StageName, ARR__c</span>
+            <div className="text-[#d97757]">
+              SELECT <span className="text-[#faf9f5]">Id, Name, StageName, ARR__c</span>
             </div>
-            <div className="text-purple-300">
-              FROM <span className="text-amber-300">Opportunity</span> WHERE IsWon = true
+            <div className="text-[#d4a27f]">
+              FROM <span className="text-[#e8e6dc]">Opportunity</span> WHERE IsWon = true
             </div>
-            <div className="mt-2 grid grid-cols-3 gap-1 rounded border border-white/10 bg-white/5 p-1 text-[8px] text-white/75">
+            <div className="mt-2 grid grid-cols-3 gap-1 rounded border border-white/10 bg-white/5 p-1 text-[8px] text-[#faf9f5]/85">
               <span>Elastic AI</span>
-              <span className="text-emerald-400">Closed Won</span>
+              <span className="text-[#a8c08a]">Closed Won</span>
               <span className="text-right">$420K</span>
             </div>
           </div>
         ) : (
           <div className="space-y-1.5 font-mono text-[9px]">
-            <div className="flex items-center justify-between rounded border border-amber-400/30 bg-amber-500/10 px-1.5 py-1 text-[8px] text-amber-200">
+            <div className="flex items-center justify-between rounded border border-[#d97757]/40 bg-[#d97757]/15 px-1.5 py-1 text-[8px] text-[#faf9f5]">
               <span>AI Live Session Review</span>
-              <span className="text-emerald-400">[Accept ⌘↵]</span>
+              <span className="text-[#d97757]">[Accept ⌘↵]</span>
             </div>
-            <div className="grid grid-cols-2 gap-1 text-[8px] text-white/75">
+            <div className="grid grid-cols-2 gap-1 text-[8px] text-[#faf9f5]/80">
               <div className="rounded border border-white/10 bg-white/5 p-1">
-                <div className="font-semibold text-white">MCP Server</div>
-                <div className="text-emerald-400">● 67/67 Tests</div>
+                <div className="font-semibold text-[#faf9f5]">MCP Server</div>
+                <div className="text-[#a8c08a]">● 67/67 Tests</div>
               </div>
               <div className="rounded border border-white/10 bg-white/5 p-1">
-                <div className="font-semibold text-white">macOS + iPad</div>
-                <div className="text-sky-400">SwiftUI Sync</div>
+                <div className="font-semibold text-[#faf9f5]">macOS + iPad</div>
+                <div className="text-[#d97757]">SwiftUI Sync</div>
               </div>
             </div>
           </div>
@@ -562,7 +562,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
                   onClick={() => setFilter(cat)}
                   className={`cursor-pointer rounded-md px-2.5 py-1 text-[11px] font-medium transition-all duration-200 ${
                     filter === cat
-                      ? 'bg-[var(--fg)] font-semibold text-[var(--bg)] shadow-sm'
+                      ? 'bg-[var(--accent)] font-semibold text-[#faf9f5] shadow-sm'
                       : 'text-[var(--muted)] hover:text-[var(--fg)]'
                   }`}
                 >
@@ -613,7 +613,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
                   <ul className="mt-3 space-y-1 border-t border-dashed border-[var(--line)]/60 pt-2.5 font-mono text-[11px] text-[var(--muted)]">
                     {project.highlights.map((h) => (
                       <li key={h} className="flex items-start gap-1.5">
-                        <span className="text-emerald-400">▸</span>
+                        <span className="text-[var(--accent)]">▸</span>
                         <span>{h}</span>
                       </li>
                     ))}
@@ -737,7 +737,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
                         href={selected.links.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-md bg-[var(--fg)] px-4 py-2 text-[12px] font-medium text-[var(--bg)] transition-opacity hover:opacity-85"
+                        className="inline-flex items-center gap-2 rounded-md bg-[var(--accent)] px-4 py-2 text-[12px] font-medium text-[#faf9f5] transition-opacity hover:opacity-90"
                       >
                         <span>Project Website</span>
                         <ArrowUpRightIcon className="size-3.5" />
@@ -886,7 +886,7 @@ export function ExperienceSection({ detailed = false }: { detailed?: boolean }) 
               <ul className="mt-3 space-y-1.5 text-[12.5px] text-[var(--muted)]">
                 {PORTFOLIO.educationAndCerts.certifications.map((cert) => (
                   <li key={cert} className="flex items-start gap-2">
-                    <span className="text-emerald-400">✓</span>
+                    <span className="text-[var(--accent)]">✓</span>
                     <span>{cert}</span>
                   </li>
                 ))}
@@ -930,7 +930,7 @@ export function SpeakingSection() {
                 <div className="flex flex-wrap items-center gap-2 font-mono text-[11.5px]">
                   <span className="font-semibold text-[var(--fg)]">{item.event}</span>
                   <span className="text-[var(--soft)]">·</span>
-                  <span className="inline-flex items-center rounded-full border border-sky-500/25 bg-sky-500/10 px-2 py-0.5 text-[10px] font-medium text-sky-400">
+                  <span className="inline-flex items-center rounded-full border border-[var(--accent-border)] bg-[var(--accent-soft)] px-2 py-0.5 text-[10px] font-medium text-[var(--accent)]">
                     {item.type}
                   </span>
                 </div>
@@ -983,7 +983,7 @@ export function TechStackSection() {
                 onClick={() => setActiveCat(cat)}
                 className={`cursor-pointer rounded-md px-3 py-1.5 text-[12px] font-medium transition-all duration-200 ${
                   active
-                    ? 'bg-[var(--fg)] font-semibold text-[var(--bg)] shadow-sm'
+                    ? 'bg-[var(--accent)] font-semibold text-[#faf9f5] shadow-sm'
                     : 'text-[var(--muted)] hover:text-[var(--fg)]'
                 }`}
               >
@@ -997,9 +997,9 @@ export function TechStackSection() {
           {skills.map((skill) => (
             <span
               key={skill}
-              className="flex cursor-default items-center gap-2 rounded-md border border-[var(--line)] bg-[var(--card)] px-3 py-1.5 font-mono text-[12px] text-[var(--muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+              className="flex cursor-default items-center gap-2 rounded-md border border-[var(--line)] bg-[var(--card)] px-3 py-1.5 font-mono text-[12px] text-[var(--muted)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-[#faf9f5]"
             >
-              <span className="size-1.5 rounded-full bg-current opacity-60" />
+              <span className="size-1.5 rounded-full bg-[var(--accent)] opacity-80" />
               {skill}
             </span>
           ))}
@@ -1095,7 +1095,7 @@ export function GitHubActivitySection() {
                 ) : (
                   <span
                     key={idx}
-                    className="size-[10px] rounded-[2px] bg-[var(--fg)] transition-transform duration-150 hover:scale-125"
+                    className="size-[10px] rounded-[2px] bg-[var(--accent)] transition-transform duration-150 hover:scale-125"
                     style={{ opacity: OPACITY_LEVELS[lvl] ?? 0.1 }}
                   />
                 )
@@ -1112,7 +1112,7 @@ export function GitHubActivitySection() {
                 {OPACITY_LEVELS.map((op) => (
                   <span
                     key={op}
-                    className="size-[10px] rounded-[2px] bg-[var(--fg)]"
+                    className="size-[10px] rounded-[2px] bg-[var(--accent)]"
                     style={{ opacity: op }}
                   />
                 ))}
@@ -1234,7 +1234,7 @@ export function ContactPageSection() {
             <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href={`mailto:${PORTFOLIO.email}`}
-                className="inline-flex items-center gap-2 rounded-lg bg-[var(--fg)] px-5 py-2.5 text-[13px] font-semibold text-[var(--bg)] transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-5 py-2.5 text-[13px] font-semibold text-[#faf9f5] transition-transform hover:-translate-y-0.5"
               >
                 <span>Send an Email</span>
                 <ArrowRightIcon className="size-3.5" />
@@ -1314,7 +1314,7 @@ export function Footer() {
         </p>
         <a
           href={`mailto:${PORTFOLIO.email}`}
-          className="group mt-5 inline-flex items-center gap-2 rounded-lg bg-[var(--fg)] px-5 py-2.5 text-[13px] font-semibold text-[var(--bg)] transition-transform duration-200 hover:-translate-y-0.5"
+          className="group mt-5 inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-5 py-2.5 text-[13px] font-semibold text-[#faf9f5] transition-transform duration-200 hover:-translate-y-0.5"
         >
           <span>Let&apos;s Talk</span>
           <ArrowRightIcon className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -1351,8 +1351,8 @@ className="animate-fade-up mx-auto -mt-2 max-w-md font-serif text-[20px] italic 
           </p>
           <p className="mt-2.5 flex items-center justify-center gap-2 font-mono text-[12px] text-[var(--soft)]">
             <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-[var(--accent)]" />
             </span>
             {PORTFOLIO.location} · {timeStr || 'CST'}
           </p>

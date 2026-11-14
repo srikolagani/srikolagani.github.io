@@ -3,36 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0f0e0e;
-  --fg: #f5f5f4;
-  --muted: #a1a1aa;
-  --soft: #63636b;
-  --line: #ffffff1a;
-  --stripe: #ffffff0e;
-  --hover: #ffffff0d;
-  --card: #101010;
-  --chip: #161616;
+  /* Anthropic Dark Slate & Warm Ivory + Terracotta Crail (#d97757) */
+  --bg: #141413;
+  --fg: #faf9f5;
+  --muted: #b0aea5;
+  --soft: #87857c;
+  --accent: #d97757;
+  --accent-soft: #d9775724;
+  --accent-border: #d9775759;
+  --sage: #788c5d;
+  --line: #e8e6dc22;
+  --stripe: #e8e6dc0d;
+  --hover: #e8e6dc0d;
+  --card: #1c1b19;
+  --chip: #252421;
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  --neon-color: #fff;
-  --neon-glow: #ffffffbf;
+  --neon-color: #d97757;
+  --neon-glow: #d97757bf;
   --theme-x: 50vw;
   --theme-y: 50vh;
 }
 
 .light {
-  --bg: #fcfcfb;
-  --fg: #18181b;
-  --muted: #52525b;
-  --soft: #a1a1aa;
-  --line: #0000001a;
-  --stripe: #0000000e;
-  --hover: #0000000a;
-  --neon-color: #2563eb;
-  --neon-glow: #2563ebbf;
-  --card: #ffffff;
-  --chip: #f4f4f5;
+  /* Anthropic Signature Warm Parchment / Ivory (#faf9f5 / #f0eee6) + Slate (#141413) + Crail (#c96442) */
+  --bg: #faf9f5;
+  --fg: #141413;
+  --muted: #5e5d59;
+  --soft: #87867f;
+  --accent: #c96442;
+  --accent-soft: #c964421c;
+  --accent-border: #c964424d;
+  --sage: #5c7042;
+  --line: #1414131c;
+  --stripe: #1414130c;
+  --hover: #1414130a;
+  --neon-color: #c96442;
+  --neon-glow: #c96442bf;
+  --card: #f3f1e9;
+  --chip: #ebe8de;
 }
 
 html {
@@ -61,7 +71,7 @@ body {
 }
 
 .text-glitch {
-  text-shadow: -1.5px 0 #00c8ff99, 1.5px 0 #ff500099;
+  text-shadow: -1px 0 #d9775755, 1px 0 #788c5d55;
 }
 
 .bg-stripes {
@@ -93,12 +103,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--soft);
+  background: var(--accent);
 }
 
 ::selection {
-  background: var(--fg);
-  color: var(--bg);
+  background: var(--accent);
+  color: #faf9f5;
 }
 
 ::view-transition-old(root),

@@ -646,13 +646,10 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
               </p>
               <button
                 type="button"
-                onClick={() => {
-                  setFilter('All');
-                  setQuery('');
-                }}
+                onClick={() => setQuery('')}
                 className="mt-3 cursor-pointer rounded-md border border-[var(--line)] bg-[var(--chip)] px-3 py-1.5 font-mono text-xs text-[var(--fg)]"
               >
-                Reset filters
+                Clear search
               </button>
             </div>
           )}

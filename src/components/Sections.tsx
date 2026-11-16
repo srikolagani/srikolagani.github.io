@@ -66,28 +66,30 @@ export function Header({
         }`}
       >
         <Container className="flex items-center justify-between px-6 py-3.5 sm:px-8">
-          <button
-            type="button"
-            onClick={() => {
-              onSelectTab('home');
-              setMobileOpen(false);
-            }}
-            aria-label={PORTFOLIO.name}
-            className="group flex cursor-pointer items-center gap-2.5 text-left transition-opacity hover:opacity-85"
-          >
-            <span className="relative size-6 shrink-0 overflow-hidden rounded-md border border-[var(--line)] bg-[var(--chip)]">
-              <img
-                src={PORTFOLIO.avatar}
-                alt={PORTFOLIO.name}
-                className="h-full w-full object-cover"
-              />
-            </span>
-            {activeTab !== 'home' && (
+          {activeTab !== 'home' ? (
+            <button
+              type="button"
+              onClick={() => {
+                onSelectTab('home');
+                setMobileOpen(false);
+              }}
+              aria-label={PORTFOLIO.name}
+              className="group flex cursor-pointer items-center gap-2.5 text-left transition-opacity hover:opacity-85"
+            >
+              <span className="relative size-6 shrink-0 overflow-hidden rounded-md border border-[var(--line)] bg-[var(--chip)]">
+                <img
+                  src={PORTFOLIO.avatar}
+                  alt={PORTFOLIO.name}
+                  className="h-full w-full object-cover"
+                />
+              </span>
               <span className="font-serif text-lg tracking-wide text-[var(--fg)] sm:text-xl">
                 {PORTFOLIO.name}
               </span>
-            )}
-          </button>
+            </button>
+          ) : (
+            <div />
+          )}
 
           <nav className="hidden items-center gap-5 text-[13px] text-[var(--muted)] sm:flex">
             {navItems.map(({ label, tab }) => {

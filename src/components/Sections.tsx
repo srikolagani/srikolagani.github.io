@@ -72,6 +72,7 @@ export function Header({
               onSelectTab('home');
               setMobileOpen(false);
             }}
+            aria-label={PORTFOLIO.name}
             className="group flex cursor-pointer items-center gap-2.5 text-left transition-opacity hover:opacity-85"
           >
             <span className="relative size-6 shrink-0 overflow-hidden rounded-md border border-[var(--line)] bg-[var(--chip)]">
@@ -81,12 +82,11 @@ export function Header({
                 className="h-full w-full object-cover"
               />
             </span>
-            <span className="font-serif text-lg tracking-wide text-[var(--fg)] sm:text-xl">
-              {PORTFOLIO.name}
-            </span>
-            <span className="hidden rounded border border-[var(--accent-border)] bg-[var(--accent-soft)] px-1.5 py-0.5 font-mono text-[10px] font-medium text-[var(--accent)] sm:inline-block">
-              ~/sri
-            </span>
+            {activeTab !== 'home' && (
+              <span className="font-serif text-lg tracking-wide text-[var(--fg)] sm:text-xl">
+                {PORTFOLIO.name}
+              </span>
+            )}
           </button>
 
           <nav className="hidden items-center gap-5 text-[13px] text-[var(--muted)] sm:flex">

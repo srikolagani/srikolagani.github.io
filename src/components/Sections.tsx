@@ -515,16 +515,10 @@ function ProjectPreviewGraphic({ project }: { project: ProjectItem }) {
 }
 
 export function ProjectsSection({ searchable = false }: { searchable?: boolean }) {
-  const [filter, setFilter] = useState<string>('All');
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<ProjectItem | null>(null);
 
-  const categories = ['All', 'Native & Desktop', 'AI & Agents', 'Fullstack'];
-
   const filtered = PORTFOLIO.projects.filter((p) => {
-    if (filter !== 'All' && !p.categories.includes(filter as ProjectItem['categories'][number])) {
-      return false;
-    }
     if (searchable && query.trim()) {
       const q = query.toLowerCase();
       return (
@@ -553,27 +547,7 @@ export function ProjectsSection({ searchable = false }: { searchable?: boolean }
   return (
     <>
       <div id="projects">
-        <SectionHeader
-          title="Projects"
-          aside={
-            <div className="flex flex-wrap gap-1 rounded-lg border border-[var(--line)] bg-[var(--chip)] p-0.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setFilter(cat)}
-                  className={`cursor-pointer rounded-md px-2.5 py-1 text-[11px] font-medium transition-all duration-200 ${
-                    filter === cat
-                      ? 'bg-[var(--accent)] font-semibold text-[#faf9f5] shadow-sm'
-                      : 'text-[var(--muted)] hover:text-[var(--fg)]'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          }
-        />
+        <SectionHeader title="Projects" />
 
         <Container className="px-6 py-6 sm:px-8">
           {searchable && (
